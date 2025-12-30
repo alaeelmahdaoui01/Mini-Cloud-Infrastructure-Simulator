@@ -26,4 +26,5 @@ class Pod {
 
         std::string getName() const;
         int getReplicas() const;
+        std::vector<std::shared_ptr<Container>> getContainers() const; 
 };

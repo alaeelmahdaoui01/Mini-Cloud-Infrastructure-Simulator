@@ -2,6 +2,8 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include <unordered_map>
+
 #include "Server.hpp"
 #include "Pod.hpp"
 #include "SchedulerStrategy.hpp"
@@ -11,6 +13,9 @@ class Cluster {
     private:
         std::vector<std::shared_ptr<Server>> servers;
         std::unique_ptr<SchedulerStrategy> scheduler;
+
+        // track pods by logical name
+        std::unordered_map<std::string, std::vector<std::shared_ptr<Pod>>> deployments;
 
     public:
 

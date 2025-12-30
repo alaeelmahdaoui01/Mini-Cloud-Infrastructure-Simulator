@@ -46,3 +46,15 @@ float Server::getLoad() const {
 std::string Server::getId() const {
     return id;
 }
+
+bool Server::removePod(const std::shared_ptr<Pod>& pod) {
+    auto it = std::find(pods.begin(), pods.end(), pod);
+    if (it == pods.end()) return false;
+
+    usedCPU -= pod->getTotalCPU();
+    usedMemory -= pod->getTotalMemory();
+
+    pods.erase(it);
+    return true;
+}
+

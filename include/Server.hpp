@@ -29,4 +29,6 @@ class Server {
 
         float getLoad() const;
         std::string getId() const;
+
+        bool removePod(const std::shared_ptr<Pod>& pod);
 };

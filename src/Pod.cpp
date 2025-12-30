@@ -39,3 +39,8 @@ std::string Pod::getName() const {
 int Pod::getReplicas() const {
     return replicas;
 }
+
+std::vector<std::shared_ptr<Container>> Pod::getContainers() const {
+    return containers;
+}
+
